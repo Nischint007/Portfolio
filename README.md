@@ -38,7 +38,7 @@ Clean, minimal, studio-inspired aesthetic
 
 Live Website 🚀
 
-https://your-portfolio-link.vercel.app/
+https://portfolio-rho-topaz-52.vercel.app/
 
 Author 🖋️
 
