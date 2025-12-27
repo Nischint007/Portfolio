@@ -1264,6 +1264,7 @@ path {
   top: 79%;
   right: 2%;
   transform: translateY(-50%);
+  font-variant-numeric: tabular-nums;
 }
 
 #loader-line {

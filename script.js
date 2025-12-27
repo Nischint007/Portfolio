@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
       scrub: 2
     }
   });
-
+  
   const scrollLine = document.querySelector("#scroll-line line");
   if (scrollLine) {
     const length = scrollLine.getTotalLength();
@@ -255,7 +255,7 @@ window.addEventListener("DOMContentLoaded", () => {
       tl.to(line2, {
         strokeDashoffset: 0,
         duration: 1.9,
-        ease: "power2.out"
+        ease: "sine.out"
       }, "+=0.65");
 
       tl.call(() => {
@@ -271,7 +271,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
       tl.to(line2, {
         autoAlpha: 0,
-        duration: 0.45
+        duration: 0.45,
+        ease: "sine.out"
       });
 
       tl.to(stairs, {
