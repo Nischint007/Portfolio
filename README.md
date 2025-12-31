@@ -1,43 +1,49 @@
 Personal Portfolio — Nischint Singh ✦
 
-A motion-driven personal portfolio designed to present work through clarity, rhythm, and interaction.
-This site is not a traditional showcase—it is an authored experience where design and motion work together to communicate intent.
+A motion-driven personal portfolio crafted to present work through clarity, rhythm, and interaction.
+This is not a conventional showcase—it is an authored digital experience where design, motion, and intent operate as a unified system.
 
-Independently designed and developed, the project reflects a studio-grade approach executed by a single creator.
+Every element has been independently designed and developed, reflecting a studio-grade mindset executed by a single creator.
 
 About the Experience 🎬
 
-Interaction shapes perception.
-Scrolling, transitions, and hover states are treated as compositional tools—guiding attention, creating flow, and revealing content with purpose.
+Interaction defines perception.
 
-Motion is embedded into the design system itself, ensuring the experience feels cohesive, fluid, and deliberate rather than decorative.
+Scrolling, transitions, and hover states are treated as compositional tools—guiding focus, establishing flow, and revealing content with intent rather than spectacle. Motion is not layered on top of the interface; it is embedded directly into the design system.
+
+The result is an experience that feels cohesive, fluid, and deliberate, prioritizing rhythm and restraint over excess.
+
+Design Philosophy ✦
+
+● Motion as narrative, not decoration
+● Clarity over complexity
+● Minimalism with intent
+● Interfaces that feel alive yet controlled
+● Visual rhythm that supports content, not distracts from it
+
+This portfolio reflects a way of thinking—iterative, detail-oriented, and deeply intentional.
 
 Technical Foundation ⚙️
 
-GSAP for animation architecture and timelines
+● GSAP — animation architecture, sequencing, and motion control
+● Lenis.js — smooth, responsive scrolling behavior
+● Vanilla JavaScript & CSS — full creative control and performance awareness
+● Custom cursor & interaction logic — spatial feedback and engagement
+● Fully responsive layout — refined breakpoints across devices
 
-Lenis.js for smooth, responsive scrolling
-
-Vanilla JavaScript & CSS for full creative control
-
-Custom cursor and interaction logic
-
-Fully responsive layout with refined breakpoints
+The stack is intentionally minimal, allowing design and motion decisions to remain the focus.
 
 Defining Qualities ✨
 
-Motion-first design philosophy
-
-Designed and developed end-to-end by a single individual
-
-Purpose-driven, performance-aware animations
-
-Interactive feedback and spatial navigation
-
-Clean, minimal, studio-inspired aesthetic
+● Motion-first design approach
+● Designed and developed end-to-end by a single individual
+● Purpose-driven, performance-aware animations
+● Interactive feedback through micro-interactions
+● Clean, studio-inspired visual language
 
 Live Website 🚀
 
+🔗 Visit the portfolio:
 https://portfolio-rho-topaz-52.vercel.app/
 
 Author 🖋️
@@ -45,7 +51,10 @@ Author 🖋️
 Nischint Singh
 Frontend Developer · Motion-Focused Designer
 
-Contact 📫
+Focused on building digital experiences where motion, structure, and intent work together to create clarity and emotional impact.
 
-For collaborations or opportunities:
-nischintsingh888@gmail.com
+For collaborations, internships, or opportunities:
+📧 nischintsingh888@gmail.com
+
+For collaborations, internships, or opportunities:
+📧 nischintsingh888@gmail.com
