@@ -16,9 +16,13 @@ The result is an experience that feels cohesive, fluid, and deliberate, prioriti
 Design Philosophy ✦
 
 ● Motion as narrative, not decoration
+
 ● Clarity over complexity
+
 ● Minimalism with intent
+
 ● Interfaces that feel alive yet controlled
+
 ● Visual rhythm that supports content, not distracts from it
 
 This portfolio reflects a way of thinking—iterative, detail-oriented, and deeply intentional.
@@ -26,9 +30,13 @@ This portfolio reflects a way of thinking—iterative, detail-oriented, and deep
 Technical Foundation ⚙️
 
 ● GSAP — animation architecture, sequencing, and motion control
+
 ● Lenis.js — smooth, responsive scrolling behavior
+
 ● Vanilla JavaScript & CSS — full creative control and performance awareness
+
 ● Custom cursor & interaction logic — spatial feedback and engagement
+
 ● Fully responsive layout — refined breakpoints across devices
 
 The stack is intentionally minimal, allowing design and motion decisions to remain the focus.
@@ -56,5 +64,3 @@ Focused on building digital experiences where motion, structure, and intent work
 For collaborations, internships, or opportunities:
 📧 nischintsingh888@gmail.com
 
-For collaborations, internships, or opportunities:
-📧 nischintsingh888@gmail.com
