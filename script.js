@@ -1,5 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const lenis = new Lenis();
+
+  const isDesktop = window.matchMedia("(pointer: fine)").matches;
+
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+    normalizeWheel: true,       
+    wheelMultiplier: isDesktop ? 0.9 : 1,
+    touchMultiplier: 1.5,
+    infinite: false,
+    overscroll: false
+  });
 
   lenis.on("scroll", ScrollTrigger.update);
 
@@ -8,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   gsap.ticker.lagSmoothing(0);
+
 
   const trails = document.querySelectorAll(".trail");
   const smoothPointer = {
