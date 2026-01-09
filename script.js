@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const lenis = new Lenis({
     lerp: 0.08,
     smoothWheel: true,
-    normalizeWheel: true,       
+    normalizeWheel: true,
     wheelMultiplier: isDesktop ? 0.9 : 1,
     touchMultiplier: 1.5,
     infinite: false,
@@ -94,7 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
       scrub: 2
     }
   });
-  
+
   const scrollLine = document.querySelector("#scroll-line line");
   if (scrollLine) {
     const length = scrollLine.getTotalLength();
@@ -135,7 +135,10 @@ window.addEventListener("DOMContentLoaded", () => {
       autoAlpha: 0,
       duration: 1,
       ease: "power4.out",
-      stagger: 0.28,
+      stagger: {
+        each: 0.3,
+        from: "center"
+      },
       scrollTrigger: {
         trigger: "#page4-wave-div",
         start: "top 90%",
@@ -226,6 +229,36 @@ window.addEventListener("DOMContentLoaded", () => {
           once: true
         }
       });
+
+const split6 = new SplitText(".split-heading-1", { type: "chars" });
+
+gsap.set(split6.chars, {
+  yPercent: 60,
+  rotateX: -35,
+  skewX: -7,
+  autoAlpha: 0,
+});
+
+gsap.to(split6.chars, {
+  yPercent: 0,
+  rotateX: 0,
+  skewX: 0,
+  autoAlpha: 1,
+  duration: 1.4,
+  ease: "power4.out",
+  stagger: {
+    amount: 0.55,
+    from: "start"
+  },
+  scrollTrigger: {
+    trigger: ".split-heading-1",
+    start: "top 90%",
+    end: "top 0%",
+    scrub: 3.8,
+    once: true,                           
+    markers: false
+  }
+});
     });
 
     const mm = gsap.matchMedia();
@@ -253,22 +286,26 @@ window.addEventListener("DOMContentLoaded", () => {
         transformOrigin: "center"
       });
 
-      const tl = gsap.timeline();
-
-      tl.to(counter, {
-        value: 100,
-        duration: 2.35,
-        ease: "power3.out",
-        onUpdate: () => {
-          counterEl.textContent = Math.floor(counter.value);
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out"
         }
       });
 
+      tl.to(counter, {
+        value: 100,
+        duration: 2.2,
+        ease: "none",
+        onUpdate: () => {
+          counterEl.textContent = Math.floor(counter.value);
+        }
+      }, "start");
+
       tl.to(line2, {
         strokeDashoffset: 0,
-        duration: 1.9,
-        ease: "sine.out"
-      }, "+=0.65");
+        duration: 2.2,
+        ease: "none"
+      }, "start");
 
       tl.call(() => {
         const split = new SplitText(counterEl, { type: "chars" });
@@ -279,20 +316,20 @@ window.addEventListener("DOMContentLoaded", () => {
           duration: 0.8,
           ease: "expo.inOut"
         });
-      });
+      }, null, "start+=2.25");
 
       tl.to(line2, {
         autoAlpha: 0,
         duration: 0.45,
         ease: "sine.out"
-      });
+      }, "start+=2.4");
 
       tl.to(stairs, {
         y: "-110%",
         duration: 1.25,
         stagger: 0.11,
         ease: "power3.inOut"
-      });
+      }, "start+=2.55");
 
       const splitHeading = new SplitText("#heading1", { type: "chars" });
 
@@ -302,7 +339,7 @@ window.addEventListener("DOMContentLoaded", () => {
         duration: isMobile ? 1.05 : 1.2,
         stagger: { amount: 0.4 },
         ease: "power2.out"
-      }, "-=0.75");
+      }, "start+=3.2");
 
       tl.from("#page1-img-1", {
         y: 150,
@@ -310,7 +347,7 @@ window.addEventListener("DOMContentLoaded", () => {
         autoAlpha: 0,
         duration: 0.85,
         ease: "power3.out"
-      }, "-=0.6");
+      }, "start+=3.25");
 
       tl.from("nav", {
         y: -22,
@@ -318,7 +355,7 @@ window.addEventListener("DOMContentLoaded", () => {
         duration: 0.65,
         stagger: 0.07,
         ease: "power2.out"
-      }, "-=0.6");
+      }, "start+=3.30");
 
       tl.call(() => {
         document.querySelector("#loader")?.remove();

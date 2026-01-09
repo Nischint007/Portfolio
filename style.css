@@ -79,7 +79,13 @@ html.lenis body {
   background-color: #F7F7F7;
   z-index: 10;
 }
-
+#page4a{
+  width: 100%;
+  height: 150vh;
+  background-color: black;
+  overflow: hidden;
+  position: relative;
+}
 #page5 {
   width: 100%;
   height: 120vh;
@@ -105,11 +111,11 @@ nav {
   padding-left: 1.5vw;
 }
 
-#left-nav h2 {
-  font-size: 1.5vw;
-  font-family: myFont2;
-  color: white;
-  opacity: 0.5;
+#circle{
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: gray;
 }
 
 #right-nav {
@@ -246,6 +252,7 @@ path {
   white-space: nowrap;
   text-transform: uppercase;
   color: #F7F7F7;
+  will-change: transform;
 }
 
 #page2-heading-3 {
@@ -259,6 +266,7 @@ path {
   white-space: nowrap;
   text-transform: uppercase;
   color: #F7F7F7;
+  will-change: transform;
 }
 
 #page2-small-heading {
@@ -291,6 +299,7 @@ path {
   left: 1.5%;
   transform: translateY(-50%);
   width: 90%;
+  pointer-events: none;
 }
 
 #behind-intro,
@@ -468,6 +477,7 @@ path {
   left: 2%;
   transform: translateY(-50%);
   width: 80%;
+  pointer-events: none;
 }
 
 #behind-intro-1,
@@ -552,6 +562,7 @@ path {
   transform: translate(-50%, -50%);
   white-space: nowrap;
   text-transform: capitalize;
+  will-change: transform;
 }
 
 #page4-heading-2 {
@@ -565,8 +576,8 @@ path {
   transform: translate(-50%, -50%);
   white-space: nowrap;
   text-transform: capitalize;
+  will-change: transform;
 }
-
 #project-container-1 {
   width: 49vw;
   height: 110vh;
@@ -582,6 +593,7 @@ path {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  will-change: transform;
 }
 
 #upper-part {
@@ -677,6 +689,7 @@ path {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  will-change: transform;
 }
 
 #upper-part-2 {
@@ -772,6 +785,7 @@ path {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  will-change: transform;
 }
 
 #upper-part-3 {
@@ -869,6 +883,7 @@ path {
   justify-content: space-between;
   flex-direction: column;
   border: 2px solid rgba(255, 255, 255, 0.06);
+  will-change: transform;
 }
 
 #upper-part-4 {
@@ -1265,6 +1280,9 @@ path {
   right: 2%;
   transform: translateY(-50%);
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  line-height: 1;
+  will-change: transform;
 }
 
 #loader-line {
@@ -1314,6 +1332,7 @@ path {
   justify-content: center;
   pointer-events: none;
   z-index: 1000;
+  will-change: transform;
 }
 
 #page4-wave-div div {
