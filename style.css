@@ -22,7 +22,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   overscroll-behavior: none;
-  touch-action: manipulation;
+  touch-action: none;
 
 }
 ::-webkit-scrollbar {

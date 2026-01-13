@@ -1,36 +1,34 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-const isPointerFine = window.matchMedia("(pointer: fine)").matches; // desktops, laptops
-const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+const isPointerFine = window.matchMedia("(pointer: fine)").matches;
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-// Final adaptive parameters
 const lenis = new Lenis({
-  lerp: isPointerFine ? 0.08 : 0.16,         // trackpads need lower lerp, mobile needs higher
-  duration: isPointerFine ? 1.1 : 1.4,       // balanced inertia across device types
+  lerp: isMobile ? 0.22 : 0.08,            
+  duration: isMobile ? 1.8 : 1.1,        
   smoothWheel: true,
   smoothTouch: true,
 
-  wheelMultiplier: isPointerFine ? 0.75 : 0.6,  // slow premium scroll everywhere
-  touchMultiplier: isTouch ? 0.9 : 1,           // mobile/tablets get heavier scroll
-  normalizeWheel: true,
+  wheelMultiplier: isPointerFine ? 0.75 : 0.6,
 
+
+  touchMultiplier: isMobile ? 0.45 : 1,
+
+  normalizeWheel: true,
   infinite: false,
   overscroll: false
 });
 
-// Sync with ScrollTrigger
+
 lenis.on("scroll", ScrollTrigger.update);
 
-// GSAP RAF with micro-clamp for ultra consistency
+
 let lastTime = 0;
 gsap.ticker.add((time) => {
   const delta = time - lastTime;
-
-  // Prevent overly-fast frames that cause jitter on some PCs
   if (delta < 0.016) return;
 
   lastTime = time;
-
   lenis.raf(time * 1000);
 });
 
