@@ -1,24 +1,40 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-  const isDesktop = window.matchMedia("(pointer: fine)").matches;
+const isPointerFine = window.matchMedia("(pointer: fine)").matches; // desktops, laptops
+const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-  const lenis = new Lenis({
-    lerp: 0.08,
-    smoothWheel: true,
-    normalizeWheel: true,
-    wheelMultiplier: isDesktop ? 0.9 : 1,
-    touchMultiplier: 1.5,
-    infinite: false,
-    overscroll: false
-  });
+// Final adaptive parameters
+const lenis = new Lenis({
+  lerp: isPointerFine ? 0.08 : 0.16,         // trackpads need lower lerp, mobile needs higher
+  duration: isPointerFine ? 1.1 : 1.4,       // balanced inertia across device types
+  smoothWheel: true,
+  smoothTouch: true,
 
-  lenis.on("scroll", ScrollTrigger.update);
+  wheelMultiplier: isPointerFine ? 0.75 : 0.6,  // slow premium scroll everywhere
+  touchMultiplier: isTouch ? 0.9 : 1,           // mobile/tablets get heavier scroll
+  normalizeWheel: true,
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
+  infinite: false,
+  overscroll: false
+});
 
-  gsap.ticker.lagSmoothing(0);
+// Sync with ScrollTrigger
+lenis.on("scroll", ScrollTrigger.update);
+
+// GSAP RAF with micro-clamp for ultra consistency
+let lastTime = 0;
+gsap.ticker.add((time) => {
+  const delta = time - lastTime;
+
+  // Prevent overly-fast frames that cause jitter on some PCs
+  if (delta < 0.016) return;
+
+  lastTime = time;
+
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 
   const trails = document.querySelectorAll(".trail");

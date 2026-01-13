@@ -21,6 +21,9 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+
 }
 ::-webkit-scrollbar {
   display: none;
