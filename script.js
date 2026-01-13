@@ -23,46 +23,31 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 
-  const trails = document.querySelectorAll(".trail");
-  const smoothPointer = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
-  };
-  const totalPointsArray = [45, 35, 25, 15, 10];
+const c = document.querySelector("#cursor");
+let mx = innerWidth/2, my = innerHeight/2, px = mx, py = my;
 
-  document.addEventListener("mousemove", (e) => {
-    gsap.to(smoothPointer, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.5,
-      ease: "power4.out"
-    });
+addEventListener("mousemove", e => (mx = e.clientX, my = e.clientY));
+
+const xTo = gsap.quickTo(c, "x", { duration: 0.7, ease: "power4.out" });
+const yTo = gsap.quickTo(c, "y", { duration: 0.7, ease: "power4.out" });
+
+gsap.ticker.add(() => {
+  xTo(mx);
+  yTo(my);
+
+  const dx = mx - px, v = Math.hypot(dx, my - py);
+
+  gsap.to(c, {
+    skewX: gsap.utils.clamp(-8, 8, dx * 0.25),
+    scaleX: 1 + v * 0.01,
+    scaleY: 1 - v * 0.01,
+    rotate: dx * 0.15,
+    duration: 0.55,
+    ease: "power4.out"
   });
 
-  function updatePath() {
-    trails.forEach((path, index) => {
-      let points = path.points || [];
-      points.unshift({ ...smoothPointer });
-
-      while (points.length > totalPointsArray[index]) {
-        points.pop();
-      }
-
-      path.points = points;
-
-      if (points.length > 1) {
-        let d = `M ${points[0].x} ${points[0].y}`;
-        for (let i = 1; i < points.length; i++) {
-          d += ` L ${points[i].x} ${points[i].y}`;
-        }
-        path.setAttribute("d", d);
-      }
-    });
-
-    requestAnimationFrame(updatePath);
-  }
-
-  updatePath();
+  px = mx; py = my;
+});
 
   const marquee = document.querySelector(".marquee-track");
   if (marquee) {
@@ -331,7 +316,7 @@ gsap.to(split6.chars, {
         duration: 1.25,
         stagger: 0.11,
         ease: "power3.inOut"
-      }, "start+=2.55");
+      }, "start+=2.7");
 
       const splitHeading = new SplitText("#heading1", { type: "chars" });
 
@@ -341,7 +326,7 @@ gsap.to(split6.chars, {
         duration: isMobile ? 1.05 : 1.2,
         stagger: { amount: 0.4 },
         ease: "power2.out"
-      }, "start+=3.2");
+      }, "start+=3.4");
 
       tl.from("#page1-img-1", {
         y: 150,
@@ -349,7 +334,7 @@ gsap.to(split6.chars, {
         autoAlpha: 0,
         duration: 0.85,
         ease: "power3.out"
-      }, "start+=3.25");
+      }, "start+=3.9");
 
       tl.from("nav", {
         y: -22,
@@ -357,7 +342,7 @@ gsap.to(split6.chars, {
         duration: 0.65,
         stagger: 0.07,
         ease: "power2.out"
-      }, "start+=3.30");
+      }, "start+=4");
 
       tl.call(() => {
         document.querySelector("#loader")?.remove();
