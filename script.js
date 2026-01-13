@@ -1,22 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-const isPointerFine = window.matchMedia("(pointer: fine)").matches; 
-const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
+const isDesktop = window.matchMedia("(pointer: fine)").matches;
 
 const lenis = new Lenis({
-  
-  lerp: isMobile ? 0.20 : 0.08,      
-  duration: isMobile ? 1.4 : 1.05,     
-
-
+  lerp: isDesktop ? 0.08 : 0.18,  
   smoothWheel: true,
   smoothTouch: true,
-
-  
-  wheelMultiplier: isPointerFine ? 0.75 : 0.6,
-  touchMultiplier: isMobile ? 0.55 : 1, 
-
+  wheelMultiplier: isDesktop ? 0.8 : 0.6,
+  touchMultiplier: 0.9,   
   normalizeWheel: true,
   infinite: false,
   overscroll: false,
@@ -25,13 +16,7 @@ const lenis = new Lenis({
 
 lenis.on("scroll", ScrollTrigger.update);
 
-
-let lastTime = 0;
 gsap.ticker.add((time) => {
-  const delta = time - lastTime;
-  if (delta < 0.016) return;  
-
-  lastTime = time;
   lenis.raf(time * 1000);
 });
 
