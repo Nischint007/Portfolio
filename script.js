@@ -146,7 +146,7 @@ gsap.ticker.add(() => {
         x: e.clientX,
         y: e.clientY,
         duration: 0.5,
-        ease: "power2.out"
+        ease: "power.out"
       });
     });
 
@@ -160,7 +160,7 @@ gsap.ticker.add(() => {
         hoverImage.style.opacity = 0;
       });
     });
-  }
+  } 
 
   document.fonts.ready.then(() => {
     const wrapper = document.querySelector(".Horizontal");

@@ -99,7 +99,7 @@ nav {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-top: 1.2vw;
+  padding: 0.8vw 1.25vw 0 1.25vw;
 }
 
 #left-nav {
@@ -108,14 +108,14 @@ nav {
   justify-content: space-evenly;
   flex-direction: column;
   cursor: pointer;
-  padding-left: 1.5vw;
 }
 
-#circle{
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background-color: gray;
+#left-nav h1{
+  font-size: 1.8vw;
+  color: white;
+  opacity: 0.3;
+  font-family: myFont2;
+  text-transform: capitalize;
 }
 
 #right-nav {
@@ -126,15 +126,16 @@ nav {
   background-color: transparent;
   width: 22vw;
   height: 7vh;
-  padding-right: 1.5vw;
-  padding-bottom: 1vw;
   opacity: 0.5;
   gap: 2vw;
 }
 
 #right-nav a {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
   color: white;
+  opacity: 0.6;
   font-family: myFont2;
   text-transform: capitalize;
   font-size: 1.8vw;
@@ -142,40 +143,24 @@ nav {
   font-weight: bold;
 }
 
-#right-nav:hover {
-  background-color: black;
+#right-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  border-radius: 3px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
-#right-nav:hover a {
-  color: white;
-}
-
-#button {
-  width: 10vw;
-  height: 7vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  border-radius: 3vw;
-  border: 3px solid white;
-  transition: all 0.5s ease;
-}
-
-#button a {
-  text-decoration: none;
-  color: white;
-  white-space: nowrap;
-  font-size: 1.35vw;
-  font-family: myFont2;
-}
-
-#button:hover {
-  background-color: black;
-}
-
-#button:hover a {
-  color: white;
+#right-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left; 
 }
 
 #heading1 {
@@ -212,8 +197,8 @@ nav {
 }
 
 #cursor {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   position: fixed;
   top: 0;
   left: 0;
@@ -221,6 +206,7 @@ nav {
   pointer-events: none;
   mix-blend-mode: difference;
   background-color: whitesmoke;
+  filter: blur(10px);
   border-radius: 50%;
 }
 
@@ -268,7 +254,8 @@ nav {
 #page2-small-heading {
   font-size: 1.5vw;
   font-family: myFont2;
-  color: grey;
+  color: white;
+  opacity: 0.35;
   position: absolute;
   top: 70.5%;
   left: 1.5%;
@@ -363,6 +350,7 @@ nav {
   font-family: myFont2;
   width: 30%;
   color: white;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -387,6 +375,7 @@ nav {
   font-family: myFont2;
   width: 30%;
   color: white;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -411,6 +400,7 @@ nav {
   font-family: myFont2;
   width: 30%;
   color: white;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -435,6 +425,7 @@ nav {
   font-family: myFont2;
   width: 30%;
   color: white;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -1349,9 +1340,10 @@ nav {
   background-size: cover;
   background-position: center;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease, transform ease 0.1s;
+  transition: opacity 0.2s ease, transform 0.1s ease;
   z-index: 1000;
 }
+
 
 @media (max-width: 767px){                      
   #page1 {
@@ -1716,6 +1708,12 @@ nav {
 
 @media (pointer: coarse) and (min-width: 481px) {
   #cursor {
+    display: none !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #right-nav a::after {
     display: none !important;
   }
 }
