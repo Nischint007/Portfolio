@@ -21,8 +21,6 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overscroll-behavior: none;
-  touch-action: pan-y;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -1715,9 +1713,11 @@ nav {
     top: 93.5%;
   }
 }
-@media (pointer: coarse) and (min-width: 481px) and (max-width: 1200px) {
+
+@media (pointer: coarse) and (min-width: 481px) {
   #cursor {
     display: none !important;
   }
 }
+
 
