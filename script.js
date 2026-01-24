@@ -282,7 +282,7 @@ gsap.to(split6.chars, {
       tl.to(counter, {
         value: 100,
         duration: 2.2,
-        ease: "none",
+        ease: "sine.out",
         onUpdate: () => {
           counterEl.textContent = Math.floor(counter.value);
         }
