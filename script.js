@@ -148,6 +148,18 @@ gsap.ticker.add(() => {
       }
     });
   }
+ 
+gsap.to("#page3", {
+  backgroundColor: "#F7F7F7",
+  scrollTrigger: {
+    trigger: "#page3",
+    scroller: "body",
+    start: "top -130%",
+    end: "bottom -30%",
+    scrub: 1
+  },
+  ease: "power2.out"
+});
 
   const hoverImage = document.querySelector("#hover-img");
   const hoverItem = document.querySelectorAll(".hover-item");
