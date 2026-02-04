@@ -6,6 +6,7 @@ const lenis = new Lenis({
   lerp: isDesktop ? 0.08 : 0.18,  
   smoothWheel: true,
   smoothTouch: true,
+  syncTouch: true,
   wheelMultiplier: isDesktop ? 0.8 : 0.6,
   touchMultiplier: 0.9,   
   normalizeWheel: true,
@@ -103,15 +104,28 @@ gsap.ticker.add(() => {
     });
   }
 
-  gsap.to("#page3", {
-    backgroundColor: "#F7F7F7",
-    duration: 1.5,
+  gsap.to("#page3-slider-1",{
+    xPercent: 120,
+    duration: 1,
     ease: "none",
     scrollTrigger: {
-      trigger: "#page3",
-      start: "top -120%",
-      end: "bottom bottom",
-      scrub: 2
+      trigger: "#page3-slider-1",
+      scroller: "body",
+      start: "top 100%",
+      end: "top -40%",
+      scrub: 2.5
+    }
+  });
+    gsap.to("#page3-slider-2",{
+    xPercent: -120,
+    duration: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#page3-slider-2",
+      scroller: "body",
+      start: "top 120%",
+      end: "top -40%",
+      scrub: 2.5
     }
   });
 
