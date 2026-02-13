@@ -340,7 +340,10 @@ gsap.to(split6.chars, {
       tl.to(stairs, {
         y: "-110%",
         duration: 1.25,
-        stagger: 0.11,
+        stagger: {
+          amount: 0.4,
+          from: "center"
+        },
         ease: "power3.inOut"
       }, "start+=2.7");
 

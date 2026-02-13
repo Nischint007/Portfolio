@@ -10,6 +10,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: Mango Grotesque;
+  src: url(MangoGrotesque-SemiBoldita.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: Neue Metana;
+  src: url(NeueMetana-Bold.otf);
+  font-display: swap;
+}
 * {
   margin: 0;
   padding: 0;
@@ -172,7 +182,7 @@ nav {
   pointer-events: none;
   white-space: nowrap;
   color: white;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #page1-img-1 {
@@ -1252,7 +1262,7 @@ nav {
 }
 
 #divs {
-  width: 25vw;
+  width: 10vw;
   height: 100vh;
   background-color: #EEEEEE;
 }
